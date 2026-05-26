@@ -10,7 +10,6 @@
 
 #define CLIENT_TUN_NAME "tunC"
 #define CLIENT_TUN_IP_CIDR "10.8.0.2/30"
-#define LOCAL_ROUTE_CIDR "172.30.1.0/24"
 #define TUN_MTU 1440
 #define TCP_MSS 1400
 

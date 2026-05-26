@@ -72,11 +72,13 @@ int main(int argc, char* argv[])
     std::printf("default ifname : %s\n", route.ifname.c_str());
     std::printf("default src    : %s\n", route.src.empty() ? "(none)" : route.src.c_str());
 
-    if(!add_route(route, LOCAL_ROUTE_CIDR))
+    std::string proxy_route = std::string(proxy_ip) + "/32";
+
+    if(!add_route(route, proxy_route))
     {
         close(tun_fd);
         return 1;
-    }
+}
 
     int proxy_fd = connect_proxy(proxy_ip, proxy_port);
     if(proxy_fd < 0)
